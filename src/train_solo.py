@@ -4,6 +4,7 @@ import argparse
 import pickle
 import os.path
 import csv
+import uuid
 
 import tensorflow as tf
 import numpy as np
@@ -16,8 +17,7 @@ from .model import model_fn
 def train(args):
 
 	# Make our folders
-	suffix = f"{args.embedding_width}"
-	model_dir = os.path.join(args.output_dir, suffix)
+	model_dir = os.path.join(args.output_dir, str(args.embedding_width), str(uuid.uuid4()))
 	os.makedirs(model_dir, exist_ok=True)
 
 	# --------------------------------------------------------------------------

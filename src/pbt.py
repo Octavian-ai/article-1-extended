@@ -173,7 +173,7 @@ class Supervisor(object):
 		# TODO: delete workers
 
 		for worker in self.workers:
-			worker.save(os.path.join(p, "/worker_{}.pkl".format(worker.id)))
+			worker.save(os.path.join(p, "worker_{}.pkl".format(worker.id)))
 
 		logger.info("Saved workers")
 
@@ -245,7 +245,7 @@ class Supervisor(object):
 
 		measures = {
 			"score": self.score,
-			"validation": lambda i: i.results.get('accuracy', -1),
+			# "validation": lambda i: i.results.get('accuracy', -1),
 			# "train": lambda i: i.results.get('train_acc', -1)
 		}
 		
